@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="aboutBody">
-      <div class="userTop" :style="{ height: this.$route.params.h }">
+    <div class="aboutBody" :style="{ 'min-height': this.$route.params.h }">
+      <div class="userTop" :style="{ height: screenHeight }">
         <div class="userImg">
           <img src="../assets/img/cover.jpg" alt="" />
         </div>
@@ -23,7 +23,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      screenHeight: window.innerHeight - 200 + "px",
+    };
   },
 };
 </script>
