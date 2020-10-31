@@ -1,0 +1,146 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px 0;
+}
+
+p,
+em,
+strong,
+a {
+  user-select: text !important;
+}
+
+a,
+a:hover,
+a:active {
+  color: #000;
+}
+
+p {
+  text-indent: 2em;
+  img {
+    max-width: 90%;
+    max-height: 300px;
+    border-radius: 5px;
+    margin: 10px auto;
+    vertical-align: middle;
+  }
+  code {
+    color: palevioletred;
+    background-color: antiquewhite;
+    display: inline-block;
+    width: auto;
+    padding: 5px;
+    font-weight: bold;
+  }
+}
+
+code {
+  width: 90%;
+  margin: 10px auto;
+  user-select: text !important;
+  transition: 0.3s ease-in-out;
+  span {
+    user-select: text !important;
+  }
+  border-radius: 5px;
+}
+
+code:hover{
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 
+  0px 6px 6px rgba(0, 0, 0, 0.1),
+  0px 8px 8px rgba(0, 0, 0, 0.05), 
+  0px 10px 15px rgba(0, 0, 0, 0.03),
+  0px 30px 30px rgba(0, 0, 0, 0.15),
+  0px 70px 60px rgba(0, 0, 0, 0.15);
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282c34;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.hljs,
+.hljs-subst {
+  color: #5097de;
+}
+
+.hljs-comment {
+  color: #616a77;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name {
+  font-weight: bold;
+  color: #c578d9;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #97bc63;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #e2c072;
+  font-weight: bold;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #bc6060;
+}
+
+.hljs-literal {
+  color: #78a960;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #397300;
+}
+
+.hljs-meta {
+  color: #1f7199;
+}
+
+.hljs-meta-string {
+  color: #4d99bf;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-params {
+  color: #53caac;
+}

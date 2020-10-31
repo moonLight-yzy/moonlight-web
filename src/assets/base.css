@@ -1,0 +1,16 @@
+/* 网页基础样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
