@@ -66,7 +66,7 @@ export default {
     }
   }
   .userInfo {
-    margin: 40px auto 0;
+    margin: 0 auto;
     text-align: center;
     letter-spacing: 2px;
     font-size: 20px;
