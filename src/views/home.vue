@@ -40,9 +40,6 @@ export default {
     //页面初次加载后调用begin()开始动画
     this.begin();
     this.getHeight();
-    setTimeout(() => {
-      document.getElementById("cover").style.zIndex = 10;
-    }, 4000);
   },
   methods: {
     getHeight() {

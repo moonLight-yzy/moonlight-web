@@ -113,6 +113,8 @@ export default {
         overflow: hidden;
         font-size: 14px;
         text-indent: 2em;
+        display: flex;
+        align-items: center;
       }
     }
   }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios'
-Vue.use(axios)
+Vue.prototype.$http = axios
 
 //导入组件
 import header from './components/header.vue'

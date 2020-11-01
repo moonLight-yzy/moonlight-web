@@ -63,12 +63,6 @@ export default {
   mounted() {
     this.setImgCSS();
   },
-  created() {
-    this.setImgCSS();
-  },
-  computed() {
-    this.setImgCSS();
-  },
   methods: {
     setImgCSS() {
       let pList = document.getElementsByTagName("p");

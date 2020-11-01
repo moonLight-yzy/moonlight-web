@@ -52,6 +52,7 @@
 
 <script>
 export default {
+  inject: ["reload"],
   data() {
     return {
       scrollNum: 0,
@@ -83,8 +84,9 @@ export default {
   },
   methods: {
     refreshPage() {
-      // this.reload();
-      this.$router.push("/");
+      this.reload();
+      // this.$router.push("/");
+      this.goTop()
     },
     goTop() {
       document.documentElement.scrollTop = 0;
