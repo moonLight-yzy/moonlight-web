@@ -23,27 +23,18 @@
 export default {
   data() {
     return {
-      projectList: [
-        {
-          imgSrc: require("../assets/img/project/67novel.jpg"),
-          name: "67小说",
-          info: "微信，qq小程序\n热门小说尽收眼底！",
-          projectSrc: "",
-        },
-        {
-          imgSrc: require("../assets/img/project/wusterhelper.jpg"),
-          name: "武科大助手",
-          info: "微信，qq小程序\n随时随地开启校园之旅。",
-          projectSrc: "http://lh.wuster.vip/helper",
-        },
-        {
-          imgSrc: require("../assets/img/project/moonlight.jpg"),
-          name: "moonlight blog",
-          info: "vue搭建前端页面，node+express搭建后台服务端。",
-          projectSrc: "http://39.103.136.125/",
-        },
-      ],
+      projectList: [],
     };
+  },
+  created() {
+    this.$http.get("http://localhost:3000/project/getProject").then((res) => {
+      let data = res.data.data;
+      for (let i = 0; i < data.length; i++) {
+        data[i].imgSrc = require(`../assets/img/project/${data[i].imgSrc}`);
+      }
+      this.projectList = data;
+      console.log(data);
+    });
   },
   methods: {
     goProject(src) {

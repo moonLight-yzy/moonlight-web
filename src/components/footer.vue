@@ -70,6 +70,7 @@ export default {};
       color: #ffffff;
       cursor: pointer;
       transition: 0.3s ease-in-out;
+      z-index: 999;
     }
     .pic {
       position: absolute;

@@ -24,6 +24,7 @@ router.beforeEach((to, from, next) => {
 	next()
 })
 
+// 代码高亮
 import Highlight from './assets/highlight'
 Vue.use(Highlight)
 

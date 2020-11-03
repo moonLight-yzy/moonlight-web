@@ -35,48 +35,39 @@
 </template>
 
 <script>
-let data = [
-  {
-    id: 0,
-    title: "vue 前端笔记",
-    label: ["前端", "vue"],
-    time: "2020.10.31",
-    readme: require("../assets/md/前端笔记.md"),
-  },
-  {
-    id: 1,
-    title: "爱下电子书 api",
-    label: ["api"],
-    time: "2020.10.31",
-    readme: require("../assets/md/爱下电子书api.md"),
-  },
-];
 export default {
   data() {
     return {
-      novelList: data,
-      id: data[0].id,
-      textTitle: data[0].title,
-      readme: data[0].readme,
+      novelList: [],
+      id: 0,
+      textTitle: "",
+      readme: "",
     };
   },
-  mounted() {
-    this.setImgCSS();
+  created() {
+    this.$http
+      .get("http://localhost:3000/novel/getNovel")
+      .then((res) => {
+        let data = res.data.data;
+        for (let i = 0; i < data.length; i++) {
+          data[i].readme = require(`../assets/md/${data[i].readme}.md`);
+          data[i].label = data[i].label.split('，')
+        }
+        this.novelList = data;
+        this.id = data[0].id;
+        this.textTitle = data[0].title;
+        this.readme = data[0].readme
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log('err',err);
+      });
   },
   methods: {
-    setImgCSS() {
-      let pList = document.getElementsByTagName("p");
-      for (let i = 0; i < pList.length; i++) {
-        if (pList[i].firstChild.localName == "img") {
-          pList[i].style.textAlign = "center";
-        }
-      }
-    },
     readNovel(id) {
       this.id = id;
-      this.textTitle = data[id].title;
-      this.readme = data[id].readme;
-      this.setImgCSS();
+      this.textTitle = this.novelList[id].title;
+      this.readme = this.novelList[id].readme;
     },
   },
 };

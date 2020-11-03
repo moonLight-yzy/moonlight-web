@@ -60,6 +60,7 @@ export default {
       screenWidth: window.innerWidth + "px",
       menuButtonWidth: window.innerWidth * 0.8 * 0.5 * 0.25 + "px",
       isTop: false,
+      myTimer: -1,
     };
   },
   mounted() {
@@ -86,10 +87,22 @@ export default {
     refreshPage() {
       this.reload();
       // this.$router.push("/");
-      this.goTop()
+      this.goTop();
     },
     goTop() {
-      document.documentElement.scrollTop = 0;
+      // document.documentElement.scrollTop = 0;
+      // window.scrollTo(0,0)
+      if ((this.myTimer = -1)) {
+        this.myTimer = setInterval(() => {
+          this.scrollNum -= 60;
+          if (this.scrollNum <= 0) {
+            this.scrollNum = 0;
+            window.clearInterval(this.myTimer);
+            this.myTimer = -1;
+          }
+          window.scrollTo(0, this.scrollNum);
+        }, 10);
+      }
     },
     touchstart(event) {
       let width = this.menuButtonWidth.split("p")[0] / 2;
@@ -106,8 +119,10 @@ export default {
 <style lang="scss" scoped>
 .navBar {
   position: fixed;
-  background-color: rgba(33, 81, 129, 0.5);
   width: 80%;
+  // position: absolute;
+  // width: 100%;
+  background-color: rgba(33, 81, 129, 0.5);
   transition: 0.5s ease-in-out;
   display: flex;
   align-items: center;
