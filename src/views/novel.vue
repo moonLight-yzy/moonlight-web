@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div>
     <div class="novelBody" :style="{ 'min-height': this.$route.params.h }">
       <div class="novelList">
         <div
@@ -45,29 +45,32 @@ export default {
     };
   },
   created() {
-    this.$http
-      .get("http://localhost:3000/novel/getNovel")
+    this.$api
+      .get("/novel/getNovel")
       .then((res) => {
         let data = res.data.data;
         for (let i = 0; i < data.length; i++) {
           data[i].readme = require(`../assets/md/${data[i].readme}.md`);
-          data[i].label = data[i].label.split('，')
+          data[i].label = data[i].label.split("，");
         }
         this.novelList = data;
         this.id = data[0].id;
         this.textTitle = data[0].title;
-        this.readme = data[0].readme
-        console.log(data)
+        this.readme = data[0].readme;
+        console.log(data);
       })
       .catch((err) => {
-        console.log('err',err);
+        console.log("err", err);
       });
   },
   methods: {
     readNovel(id) {
       this.id = id;
-      this.textTitle = this.novelList[id].title;
-      this.readme = this.novelList[id].readme;
+      console.log(this.id)
+      console.log(this.novelList)
+      this.textTitle = this.novelList[this.id].title;
+      this.readme = this.novelList[this.id].readme;
+      console.log(this.novelList[this.id])
     },
   },
 };
@@ -121,6 +124,7 @@ export default {
         0px 70px 60px rgba(0, 0, 0, 0.15);
       border-radius: 10px;
       margin-left: 10px;
+      backdrop-filter: blur(10px);
     }
     @keyframes selectBorder {
       0% {

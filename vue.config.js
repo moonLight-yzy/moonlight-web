@@ -1,4 +1,6 @@
 module.exports = {
+    lintOnSave: false,
+    publicPath: './',
     chainWebpack: config => {
         config.module
             .rule('md')

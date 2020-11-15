@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import axios from 'axios'
-Vue.prototype.$http = axios
+import api from './api'
+Vue.prototype.$api = api
 
 //导入组件
 import header from './components/header.vue'

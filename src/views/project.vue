@@ -27,7 +27,7 @@ export default {
     };
   },
   created() {
-    this.$http.get("http://localhost:3000/project/getProject").then((res) => {
+    this.$api.get("/project/getProject").then((res) => {
       let data = res.data.data;
       for (let i = 0; i < data.length; i++) {
         data[i].imgSrc = require(`../assets/img/project/${data[i].imgSrc}`);
@@ -111,12 +111,13 @@ export default {
   }
   .projectCard:hover {
     width: 50%;
-    background-color: #ffffff77;
+    background-color: #ffffff40;
     border-radius: 10px;
     transition: 0.3s ease-in-out;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1),
       0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03),
       0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
   }
 }
 </style>
